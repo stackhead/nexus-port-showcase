@@ -8,80 +8,80 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Light mode */
-    --background: 248 250 252;
-    --foreground: 15 23 42;
+    /* Light mode - Blue sky theme */
+    --background: 240 249 255; /* sky-50 light blue background */
+    --foreground: 12 74 110; /* sky-900 deep blue text */
 
-    --card: 255 255 255;
-    --card-foreground: 15 23 42;
+    --card: 255 255 255; /* white cards */
+    --card-foreground: 12 74 110;
 
     --popover: 255 255 255;
-    --popover-foreground: 15 23 42;
+    --popover-foreground: 12 74 110;
 
-    --primary: 14 165 233; /* sky-500 bright blue */
+    --primary: 2 132 199; /* sky-600 strong blue */
     --primary-foreground: 255 255 255;
-    --primary-glow: 56 189 248;
+    --primary-glow: 14 165 233; /* sky-500 */
 
-    --secondary: 241 245 249;
-    --secondary-foreground: 15 23 42;
+    --secondary: 224 242 254; /* sky-100 */
+    --secondary-foreground: 12 74 110;
 
-    --muted: 226 232 240;
-    --muted-foreground: 100 116 139;
+    --muted: 186 230 253; /* sky-200 */
+    --muted-foreground: 71 85 105; /* slate-600 */
 
-    --accent: 14 165 233;
+    --accent: 2 132 199; /* sky-600 */
     --accent-foreground: 255 255 255;
 
     --destructive: 239 68 68;
     --destructive-foreground: 255 255 255;
 
-    --border: 226 232 240;
-    --input: 226 232 240;
+    --border: 186 230 253; /* sky-200 */
+    --input: 224 242 254; /* sky-100 */
     --ring: 14 165 233;
 
     --radius: 0.75rem;
 
-    /* Gradient - bright blue to purple */
-    --hero-gradient-start: 14 165 233; /* bright blue */
-    --hero-gradient-end: 168 85 247; /* purple-500 */
-    --card-hover-shadow: 0 20px 40px -10px rgba(14, 165, 233, 0.4);
+    /* Blue gradient theme */
+    --hero-gradient-start: 14 165 233; /* sky-500 */
+    --hero-gradient-end: 59 130 246; /* blue-500 */
+    --card-hover-shadow: 0 20px 40px -10px rgba(14, 165, 233, 0.3);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .dark {
-    /* Dark mode - Deep space navy */
+    /* Dark mode - Deep space blue */
     --background: 15 23 42; /* slate-900 deep navy */
-    --foreground: 248 250 252; /* slate-50 almost white */
+    --foreground: 240 249 255; /* sky-50 light text */
 
-    --card: 30 41 59; /* slate-800 */
-    --card-foreground: 248 250 252;
+    --card: 30 41 59; /* slate-800 dark blue cards */
+    --card-foreground: 240 249 255;
 
     --popover: 30 41 59;
-    --popover-foreground: 248 250 252;
+    --popover-foreground: 240 249 255;
 
-    --primary: 14 165 233; /* sky-500 electric blue */
-    --primary-foreground: 255 255 255;
-    --primary-glow: 56 189 248; /* sky-400 */
+    --primary: 56 189 248; /* sky-400 bright blue */
+    --primary-foreground: 15 23 42;
+    --primary-glow: 125 211 252; /* sky-300 */
 
     --secondary: 51 65 85; /* slate-700 */
-    --secondary-foreground: 248 250 252;
+    --secondary-foreground: 240 249 255;
 
     --muted: 51 65 85;
     --muted-foreground: 148 163 184; /* slate-400 */
 
-    --accent: 14 165 233;
-    --accent-foreground: 255 255 255;
+    --accent: 56 189 248; /* sky-400 */
+    --accent-foreground: 15 23 42;
 
     --destructive: 248 113 113;
     --destructive-foreground: 255 255 255;
 
     --border: 51 65 85;
     --input: 51 65 85;
-    --ring: 14 165 233;
+    --ring: 56 189 248;
 
-    /* Gradient - electric blue to vivid purple */
-    --hero-gradient-start: 14 165 233; /* sky-500 bright blue */
-    --hero-gradient-end: 168 85 247; /* purple-500 */
-    --card-hover-shadow: 0 20px 40px -10px rgba(14, 165, 233, 0.6);
+    /* Dark blue gradient */
+    --hero-gradient-start: 56 189 248; /* sky-400 bright blue */
+    --hero-gradient-end: 96 165 250; /* blue-400 */
+    --card-hover-shadow: 0 20px 40px -10px rgba(56, 189, 248, 0.5);
   }
 }
 
