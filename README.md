@@ -1,73 +1,248 @@
-# Welcome to your Lovable project
+# Developer Portfolio Template
 
-## Project info
+A modern, fully-featured developer portfolio template built with React, TypeScript, Tailwind CSS, and Framer Motion. Perfect for developers who want a beautiful, customizable portfolio site with zero backend setup required.
 
-**URL**: https://lovable.dev/projects/14f23349-3825-46ba-9b1a-0c4268dea335
+## ✨ Features
 
-## How can I edit this code?
+- 🎨 **Dark/Light Mode** - Automatic theme detection with manual toggle and localStorage persistence
+- 📱 **Fully Responsive** - Looks great on mobile, tablet, and desktop
+- ⚡ **Performance Optimized** - Fast loading with lazy loading and optimized images
+- 🎭 **Smooth Animations** - Elegant micro-interactions powered by Framer Motion
+- 📬 **Contact Form** - EmailJS integration for client-side email functionality
+- 🎯 **SEO Ready** - Optimized meta tags and semantic HTML
+- ♿ **Accessible** - WCAG compliant with keyboard navigation and ARIA labels
+- 🔧 **Easy to Customize** - Simple JSON-based project data and modular components
+- 🚀 **Deploy Ready** - One-command deployment to Vercel or Netlify
 
-There are several ways of editing your application.
+## 🎯 Live Demo
 
-**Use Lovable**
+[View Live Demo](https://lovable.dev) - Coming soon!
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/14f23349-3825-46ba-9b1a-0c4268dea335) and start prompting.
+## 📸 Screenshots
 
-Changes made via Lovable will be committed automatically to this repo.
+![Light Mode Hero](https://images.unsplash.com/photo-1557821552-17105176677c?w=800&q=80)
+*Light Mode - Clean and professional*
 
-**Use your preferred IDE**
+![Dark Mode Projects](https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80)
+*Dark Mode - Easy on the eyes*
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🚀 Quick Start
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Prerequisites
 
-Follow these steps:
+- Node.js 18+ and npm installed
+- Git for version control
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Installation
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/portfolio-template.git
+   cd portfolio-template
+   ```
 
-# Step 3: Install the necessary dependencies.
-npm i
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+3. **Start development server**
+   ```bash
+   npm run dev
+   ```
+
+4. **Open your browser**
+   Navigate to `http://localhost:8080`
+
+## 🎨 Customization Guide
+
+### 1. Personal Information
+
+Edit the following files to add your information:
+
+**Hero Section** (`src/components/Hero.tsx`):
+```tsx
+<h1>Hi, I'm <span className="gradient-text">Your Name</span></h1>
+<p>Your tagline here...</p>
 ```
 
-**Edit a file directly in GitHub**
+**Footer** (`src/components/Footer.tsx`):
+```tsx
+<p>© {currentYear} Built with ❤️ by Your Name</p>
+```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### 2. Projects
 
-**Use GitHub Codespaces**
+Update your projects in `src/data/projects.ts`:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```typescript
+export const projects: Project[] = [
+  {
+    id: '1',
+    title: 'Your Project Name',
+    description: 'Short description...',
+    longDescription: 'Detailed description...',
+    image: 'https://your-image-url.com/image.jpg',
+    technologies: ['React', 'TypeScript', 'Tailwind'],
+    githubUrl: 'https://github.com/yourusername/project',
+    demoUrl: 'https://your-demo.com',
+    featured: true,
+  },
+  // Add more projects...
+];
+```
 
-## What technologies are used for this project?
+### 3. Contact Form (EmailJS Setup)
 
-This project is built with:
+1. Sign up at [EmailJS](https://www.emailjs.com/)
+2. Create an email service
+3. Create an email template
+4. Get your credentials (Service ID, Template ID, Public Key)
+5. Update `src/components/Contact.tsx`:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```typescript
+import emailjs from '@emailjs/browser';
 
-## How can I deploy this project?
+// Initialize EmailJS with your public key
+emailjs.init('YOUR_PUBLIC_KEY');
 
-Simply open [Lovable](https://lovable.dev/projects/14f23349-3825-46ba-9b1a-0c4268dea335) and click on Share -> Publish.
+// In handleSubmit function:
+await emailjs.send(
+  'YOUR_SERVICE_ID',
+  'YOUR_TEMPLATE_ID',
+  {
+    from_name: formData.name,
+    from_email: formData.email,
+    message: formData.message,
+  }
+);
+```
 
-## Can I connect a custom domain to my Lovable project?
+### 4. Theme Customization
 
-Yes, you can!
+Modify colors in `src/index.css`:
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+```css
+:root {
+  --primary: 6 182 212; /* Your brand color (HSL) */
+  --hero-gradient-start: 6 182 212;
+  --hero-gradient-end: 59 130 246;
+}
+```
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+### 5. Social Links
+
+Update social media links in `src/components/Hero.tsx` and `src/components/Footer.tsx`:
+
+```tsx
+<a href="https://github.com/yourusername">GitHub</a>
+<a href="https://linkedin.com/in/yourusername">LinkedIn</a>
+<a href="mailto:your.email@example.com">Email</a>
+```
+
+### 6. Resume/CV
+
+Add your resume PDF to the `public` folder and update the link in `src/components/Hero.tsx`:
+
+```tsx
+<a href="/your-resume.pdf" download>Resume</a>
+```
+
+## 📦 Build for Production
+
+```bash
+npm run build
+```
+
+This creates an optimized production build in the `dist` folder.
+
+## 🚀 Deployment
+
+### Deploy to Vercel
+
+1. Push your code to GitHub
+2. Visit [vercel.com](https://vercel.com)
+3. Import your repository
+4. Deploy!
+
+### Deploy to Netlify
+
+1. Push your code to GitHub
+2. Visit [netlify.com](https://netlify.com)
+3. Click "Add new site" → "Import an existing project"
+4. Select your repository and deploy
+
+## 🛠️ Tech Stack
+
+- **Framework:** React 18 with TypeScript
+- **Build Tool:** Vite
+- **Styling:** Tailwind CSS
+- **Animations:** Framer Motion
+- **UI Components:** Radix UI (shadcn/ui)
+- **Form Handling:** React Hook Form + Zod
+- **Email:** EmailJS
+- **Icons:** Lucide React
+
+## 📁 Project Structure
+
+```
+portfolio-template/
+├── src/
+│   ├── components/       # Reusable UI components
+│   │   ├── ui/          # Base UI components (shadcn)
+│   │   ├── Hero.tsx
+│   │   ├── Navbar.tsx
+│   │   ├── Projects.tsx
+│   │   ├── Contact.tsx
+│   │   └── Footer.tsx
+│   ├── contexts/        # React contexts (Theme)
+│   ├── data/           # Project data (projects.ts)
+│   ├── pages/          # Route pages
+│   ├── App.tsx
+│   └── index.css       # Global styles & design tokens
+├── public/             # Static assets
+└── package.json
+```
+
+## 🎯 Component Reusability
+
+All components are designed to be easily extracted and reused in other projects:
+
+- `Button` - Customizable button with variants
+- `Card` - Content card with hover effects
+- `Badge` - Technology/tag badges
+- `Modal` - Accessible modal dialogs
+- `ThemeToggle` - Dark/light mode switcher
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 💬 Support
+
+If you have any questions or need help, feel free to:
+
+- Open an issue on GitHub
+- Reach out via [email](mailto:hello@example.com)
+- Connect on [LinkedIn](https://linkedin.com)
+
+## 🙏 Acknowledgments
+
+- [Lovable](https://lovable.dev) - For the amazing development platform
+- [shadcn/ui](https://ui.shadcn.com) - For the beautiful UI components
+- [Tailwind CSS](https://tailwindcss.com) - For the utility-first CSS framework
+- [Framer Motion](https://www.framer.com/motion) - For smooth animations
+
+---
+
+Built with ❤️ using [Lovable](https://lovable.dev)
